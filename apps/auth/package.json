@@ -1,5 +1,5 @@
 {
-  "name": "@lsit-connector/lsit-connector",
+  "name": "@lsit-connector/auth",
   "version": "0.0.1",
   "private": true,
   "nx": {
@@ -11,7 +11,7 @@
           "args": [
             "--node-env=production"
           ],
-          "cwd": "apps/lsit-connector"
+          "cwd": "apps/auth"
         },
         "configurations": {
           "development": {
@@ -28,8 +28,8 @@
         "cache": true,
         "executor": "@nx/js:prune-lockfile",
         "outputs": [
-          "{workspaceRoot}/apps/lsit-connector/dist/package.json",
-          "{workspaceRoot}/apps/lsit-connector/dist/package-lock.json"
+          "{workspaceRoot}/apps/auth/dist/package.json",
+          "{workspaceRoot}/apps/auth/dist/package-lock.json"
         ],
         "options": {
           "buildTarget": "build"
@@ -41,7 +41,7 @@
         ],
         "cache": true,
         "outputs": [
-          "{workspaceRoot}/apps/lsit-connector/dist/workspace_modules"
+          "{workspaceRoot}/apps/auth/dist/workspace_modules"
         ],
         "executor": "@nx/js:copy-workspace-modules",
         "options": {
@@ -63,15 +63,15 @@
           "build"
         ],
         "options": {
-          "buildTarget": "@lsit-connector/lsit-connector:build",
+          "buildTarget": "@lsit-connector/auth:build",
           "runBuildTargetDependencies": false
         },
         "configurations": {
           "development": {
-            "buildTarget": "@lsit-connector/lsit-connector:build:development"
+            "buildTarget": "@lsit-connector/auth:build:development"
           },
           "production": {
-            "buildTarget": "@lsit-connector/lsit-connector:build:production"
+            "buildTarget": "@lsit-connector/auth:build:production"
           }
         }
       },

@@ -2,7 +2,9 @@
   "name": "@lsit-connector/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+      "start:auth": "nx serve auth --output-style=dynamic-legacy"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^11.0.0",

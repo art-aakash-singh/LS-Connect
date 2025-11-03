@@ -4,10 +4,7 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/lsit-connector-e2e"
-    },
-    {
-      "path": "./apps/lsit-connector"
+      "path": "./apps/auth"
     }
   ]
 }
