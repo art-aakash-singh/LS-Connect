@@ -1,0 +1,26 @@
+{
+  "name": "@lsit-connector/lsit-connector-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@lsit-connector/lsit-connector"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/lsit-connector-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@lsit-connector/lsit-connector:build",
+          "@lsit-connector/lsit-connector:serve"
+        ]
+      }
+    }
+  }
+}
