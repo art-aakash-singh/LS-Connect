@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-      "start:auth": "nx serve auth --output-style=dynamic-legacy"
+    "start:auth": "nx serve auth --output-style=dynamic-legacy"
   },
   "private": true,
   "dependencies": {
@@ -49,6 +49,7 @@
     "webpack-cli": "^5.1.4"
   },
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "libs/*"
   ]
 }

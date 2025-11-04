@@ -28,7 +28,8 @@
           "buildDepsName": "build-deps",
           "watchDepsName": "watch-deps"
         }
-      }
+      },
+      "exclude": ["libs/shared/*"]
     },
     {
       "plugin": "@nx/webpack/plugin",
@@ -62,6 +63,15 @@
         },
         "runTarget": {
           "name": "docker:run"
+        }
+      }
+    },
+    {
+      "plugin": "@nx/js/typescript",
+      "include": ["libs/shared/*"],
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
         }
       }
     }
