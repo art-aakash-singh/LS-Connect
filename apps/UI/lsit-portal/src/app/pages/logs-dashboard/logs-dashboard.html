@@ -1,0 +1,29 @@
+<div class="card">
+    <h3>Case Logs</h3>
+    <p-table [value]="caseLogs" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header>
+        <tr>
+            <th>Case Id</th>
+            <th>WUCID</th>
+            <th>Type</th>
+            <th>Seriousness</th>
+            <th>Reporter</th>
+            <th>Version</th>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-case>
+        <tr>
+            <td>{{ case.caseId }}</td>
+            <td>{{ case.wucid }}</td>
+            <td>{{ case.caseType }}</td>
+            <td>{{ case.seriousness }}</td>
+            <td>{{ case.reporterType }}</td>
+            <td>{{ case.e2bVersion }}</td>
+            <td>{{ case.timestamp | date:'dd-mm-yyyy' }}</td>
+            <td>{{ case.status}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
