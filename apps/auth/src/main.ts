@@ -5,7 +5,7 @@ import { ErrorHandlerFilter } from './api/global/service/error-handler.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'auth';
+  const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   const errorHandlerFilter = app.get(ErrorHandlerFilter);
   app.useGlobalFilters(errorHandlerFilter);

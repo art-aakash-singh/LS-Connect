@@ -1,4 +1,4 @@
-import { BadRequestException, Controller, Get } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
 @Controller()
 export class AppController {
@@ -7,10 +7,5 @@ export class AppController {
     return {
       success: true,
     };
-  }
-
-  @Get('error')
-  getError(){
-  throw new Error('Bad request error');
   }
 }
