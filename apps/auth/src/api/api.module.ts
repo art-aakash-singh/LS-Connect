@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { RouterModule, Routes } from '@nestjs/core';
-import { LoginModule } from './login/login.module';
+import { LoginModule } from './v1/login/login.module';
+import { V1Module } from './v1/v1.module';
 
 const routes: Routes = [
   {
@@ -15,6 +16,6 @@ const routes: Routes = [
 ];
 
 @Module({
-  imports: [RouterModule.register(routes), LoginModule],
+  imports: [RouterModule.register(routes), V1Module],
 })
 export class ApiModule {}
