@@ -1,5 +1,5 @@
 {
-  "name": "@lsit-connector/auth",
+  "name": "@ls-connect/auth",
   "version": "0.0.1",
   "private": true,
   "nx": {
@@ -63,15 +63,15 @@
           "build"
         ],
         "options": {
-          "buildTarget": "@lsit-connector/auth:build",
+          "buildTarget": "@ls-connect/auth:build",
           "runBuildTargetDependencies": false
         },
         "configurations": {
           "development": {
-            "buildTarget": "@lsit-connector/auth:build:development"
+            "buildTarget": "@ls-connect/auth:build:development"
           },
           "production": {
-            "buildTarget": "@lsit-connector/auth:build:production"
+            "buildTarget": "@ls-connect/auth:build:production"
           }
         }
       },

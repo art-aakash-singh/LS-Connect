@@ -1,5 +1,5 @@
 {
-  "name": "@lsit-connector/source",
+  "name": "@ls-connect/source",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -53,6 +53,6 @@
   "workspaces": [
     "apps/*",
     "libs/*",
-    "apps/UI/lsit-portal"
+    "apps/UI/ls-portal"
   ]
 }

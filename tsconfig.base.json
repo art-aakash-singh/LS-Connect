@@ -16,11 +16,11 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@lsit-connector/source"],
+    "customConditions": ["@ls-connect/source"],
       "baseUrl": ".",
     "paths": {
-      "@lsit-connector/shared": ["libs/shared/src/index.ts"],
-      "@lsit-connector/shared/*": ["libs/shared/src/*"]
+      "@ls-connect/shared": ["libs/shared/src/index.ts"],
+      "@ls-connect/shared/*": ["libs/shared/src/*"]
     }
   }
 }

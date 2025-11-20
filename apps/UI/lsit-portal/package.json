@@ -1,5 +1,5 @@
 {
-    "name": "lsit-connector-frontend",
+    "name": "ls-connect-frontend",
     "version": "20.0.0",
     "scripts": {
         "ng": "ng",

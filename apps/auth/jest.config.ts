@@ -10,7 +10,7 @@ const swcJestConfig = JSON.parse(
 swcJestConfig.swcrc = false;
 
 export default {
-  displayName: '@lsit-connector/lsit-connector',
+  displayName: '@ls-connect/ls-connect',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

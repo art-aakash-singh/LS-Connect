@@ -28,8 +28,8 @@ async function bootstrap() {
 
   // Swagger setup
   const v1Config = new DocumentBuilder()
-    .setTitle('LSIT Connector Auth API')
-    .setDescription('API documentation for the LSIT Connector auth microservice')
+    .setTitle('ls connect Auth API')
+    .setDescription('API documentation for the ls connect auth microservice')
     .setVersion('1.0')
     .addBearerAuth()
     .build();

@@ -17,7 +17,7 @@ import { LayoutService } from '../service/layout.service';
             </button>
             <a class="layout-topbar-logo" routerLink="/">
                 <img src="assets/images/AG_logo.svg" class="w-40 ml-4" alt="logo"/>
-                <span>Connector</span>
+                <span>connect</span>
             </a>
         </div>
 
