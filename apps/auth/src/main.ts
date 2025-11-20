@@ -3,7 +3,7 @@ import { VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import * as fs from 'fs';
+import * as fs from 'fs'; 
 import { V1Module } from './api/v1/v1.module';
 
 async function bootstrap() {
