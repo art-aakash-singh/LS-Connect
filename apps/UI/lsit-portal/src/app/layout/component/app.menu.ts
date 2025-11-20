@@ -22,7 +22,14 @@ export class AppMenu {
         this.model = [
             {
                 label: 'Home',
-                items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }]
+                items: [
+                    { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
+                    {
+                        label: 'User Management',
+                        icon: 'pi pi-list',
+                        routerLink: ['/users']
+                    }
+                ]
             },
             {
                 label: 'Logs',
@@ -37,6 +44,21 @@ export class AppMenu {
                         label: 'Audit Logs',
                         icon: 'pi pi-clipboard',
                         routerLink: ['/pages/audit/logs']
+                    }
+                ]
+            },
+            {
+                label: 'System Configuration',
+                items: [
+                    {
+                        label: 'Integration',
+                        icon: 'pi pi-cog',
+                        routerLink: ['pages/system/onboard']
+                    },
+                    {
+                        label: 'Configuration',
+                        icon: 'pi pi-cog',
+                        routerLink: ['pages/system/duplicate-search']
                     }
                 ]
             },

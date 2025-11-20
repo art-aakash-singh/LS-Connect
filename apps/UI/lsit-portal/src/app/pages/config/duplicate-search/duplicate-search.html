@@ -1,0 +1,275 @@
+<div class="min-h-screen bg-background">
+  <div class="container mx-auto px-6 py-8">
+    
+    <!-- Breadcrumb -->
+    <div class="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+      <a  class="hover:text-foreground transition-colors">
+        Safety System Integrations
+      </a>
+      <i class="pi pi-chevron-right h-4 w-4"></i>
+      <span class="text-foreground font-medium">Argus Production</span>
+      <i class="pi pi-chevron-right h-4 w-4"></i>
+      <span class="text-foreground font-medium">Duplicate Search Configuration</span>
+    </div>
+
+    <!-- Header -->
+    <div class="card">
+      <h1 class="text-3xl font-bold text-foreground mb-2">
+        Duplicate Search Configuration
+      </h1>
+      <p class="text-muted-foreground">
+        Configure duplicate detection rules for Argus Production
+      </p>
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="space-y-8">
+      <!-- <app-global-settings
+        [enabled]="isDuplicateCheckEnabled">
+      </app-global-settings> -->
+
+      <ng-container *ngIf="isDuplicateCheckEnabled">
+        <div class="card">
+  <!-- Card Header -->
+  <div class="mb-6">
+    <h2 class="text-2xl font-semibold mb-2 text-[var(--text-color)]">Search Criteria Fields</h2>
+    <p class="text-[var(--text-color-secondary)] text-sm leading-6">
+      Select which fields to include in duplicate detection and configure matching behavior
+    </p>
+  </div>
+  
+  <div class="card-content">
+    <p-table [value]="fields" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Field Name</th>
+          <th>E2B Reference</th>
+          <th class="text-center">Include</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </ng-template>
+      
+      <ng-template pTemplate="body" let-field let-i="rowIndex">
+        <tr>
+          <td class="font-medium">{{ field.name }}</td>
+          <td class="text-[var(--text-color-secondary)]">{{ field.e2b }}</td>
+          <td class="text-center">
+            <p-toggleSwitch 
+              [(ngModel)]="field.defaultOn"
+              (onChange)="onFieldToggle(i, $event)">
+            </p-toggleSwitch>
+          </td>
+          <td class="text-center">
+            <button 
+              pButton 
+              type="button"
+              icon="pi pi-cog"
+              class="p-button-text p-button-rounded"
+              (click)="onFieldSettings(i)">
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="mb-6">
+    <h2 class="text-2xl font-semibold mb-2 text-[var(--text-color)]">
+      Advanced SQL Query Configuration
+    </h2>
+    <p class="text-[var(--text-color-secondary)] text-sm leading-6">
+      Configure custom SQL queries for advanced duplicate detection
+    </p>
+  </div>
+  
+  <div class="space-y-4">
+    <!-- Custom SQL Query Toggle -->
+    <div class="flex items-center justify-between">
+      <div class="space-y-1">
+        <label class="font-medium text-sm">Custom SQL Query</label>
+        <p class="text-sm text-[var(--text-color-secondary)]">
+          Use custom SQL instead of default field-based rules
+        </p>
+      </div>
+      <p-toggleSwitch 
+        [(ngModel)]="useCustomSQL"
+        (onChange)="onCustomSQLToggle($event)">
+      </p-toggleSwitch>
+    </div>
+
+    <!-- SQL Query Editor -->
+    <div class="space-y-2">
+      <label for="sqlQuery" class="font-medium text-sm block">
+        SQL Query Editor
+      </label>
+      <textarea
+        id="sqlQuery"
+        pTextarea
+        [(ngModel)]="sqlQuery"
+        [rows]="10"
+        class="font-mono text-sm w-full"
+        [disabled]="!useCustomSQL">
+      </textarea>
+    </div>
+
+    <!-- Query Timeout -->
+    <div class="space-y-2">
+      <label for="queryTimeout" class="font-medium text-sm block">
+        Query Execution Timeout (seconds)
+      </label>
+      <p-inputNumber
+        inputId="queryTimeout"
+        [(ngModel)]="queryTimeout"
+        [min]="1"
+        [max]="300"
+        [showButtons]="false"
+        styleClass="w-40"
+        [disabled]="!useCustomSQL">
+      </p-inputNumber>
+    </div>
+
+    <!-- Test Query Button -->
+    <button 
+      pButton 
+      type="button" 
+      label="Test Query" 
+      class="p-button-outlined"
+      [disabled]="!useCustomSQL"
+      (click)="onTestQuery()">
+    </button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="mb-6">
+    <h2 class="text-2xl font-semibold mb-2 text-[var(--text-color)]">
+      Test & Validation
+    </h2>
+    <p class="text-[var(--text-color-secondary)] text-sm leading-6">
+      Test your duplicate detection configuration with sample cases
+    </p>
+  </div>
+  
+  <div class="space-y-4">
+    <!-- Upload Test Case -->
+    <div class="space-y-2">
+  <label class="font-medium text-sm block">
+    Upload Test Case
+  </label>
+  <p-fileUpload
+    #fileUpload
+    mode="basic"
+    name="testFile"
+    accept=".xml,.json"
+    [maxFileSize]="10000000"
+    [auto]="false"
+    chooseLabel="Choose File"
+    chooseIcon="pi pi-upload"
+    (onSelect)="onFileSelect($event)"
+    (onClear)="onFileClear()">
+  </p-fileUpload>
+  <p class="text-xs text-[var(--text-color-secondary)]">
+    Upload E2B XML or JSON file
+  </p>
+</div>
+
+    <!-- Divider with OR -->
+    <div class="flex items-center gap-2">
+      <div class="flex-1 h-px bg-[var(--surface-border)]"></div>
+      <span class="text-sm text-[var(--text-color-secondary)]">OR</span>
+      <div class="flex-1 h-px bg-[var(--surface-border)]"></div>
+    </div>
+
+    <!-- Case ID Input -->
+    <div class="space-y-2">
+      <label for="caseId" class="font-medium text-sm block">
+        Enter Case ID from System
+      </label>
+      <input
+        id="caseId"
+        type="text"
+        pInputText
+        [(ngModel)]="caseId"
+        placeholder="e.g., CASE-2024-001234"
+        class="w-full" />
+    </div>
+
+    <!-- Run Test Button -->
+    <button 
+      pButton 
+      type="button" 
+      label="Run Duplicate Check Test" 
+      class="w-full"
+      [disabled]="!canRunTest()"
+      (click)="onRunTest()">
+    </button>
+
+    <!-- Test Results -->
+    <div class="mt-6 p-4 bg-[var(--surface-100)] rounded-lg">
+      <h4 class="font-medium mb-2">Test Results</h4>
+      <p class="text-sm text-[var(--text-color-secondary)]" *ngIf="!testResults">
+        Run a test to see results here. Results will include found duplicates, matched fields breakdown, execution time, and the SQL query executed.
+      </p>
+      
+      <!-- Display results when available -->
+      <div *ngIf="testResults" class="space-y-3">
+        <div class="text-sm">
+          <span class="font-medium">Duplicates Found:</span>
+          <span class="ml-2">{{ testResults.duplicatesCount }}</span>
+        </div>
+        <div class="text-sm">
+          <span class="font-medium">Execution Time:</span>
+          <span class="ml-2">{{ testResults.executionTime }}ms</span>
+        </div>
+        <div class="text-sm">
+          <span class="font-medium">Matched Fields:</span>
+          <span class="ml-2">{{ testResults.matchedFields }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- <app-search-criteria-fields></app-search-criteria-fields>
+        <app-advanced-query-config></app-advanced-query-config>
+        <app-duplicate-handling-rules></app-duplicate-handling-rules>
+        <app-exclusion-rules></app-exclusion-rules>
+        <app-test-validation></app-test-validation> -->
+      </ng-container>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center justify-end gap-4 mt-8 pt-8 border-t">
+      <button 
+        pButton 
+        type="button" 
+        label="Reset to Default" 
+        class="p-button-outlined"
+        (click)="onResetToDefault()">
+      </button>
+      <button 
+        pButton 
+        type="button" 
+        label="Export Configuration" 
+        class="p-button-outlined"
+        (click)="onExportConfiguration()">
+      </button>
+      <button 
+        pButton 
+        type="button" 
+        label="Cancel" 
+        class="p-button-outlined"
+        >
+      </button>
+      <button 
+        pButton 
+        type="button" 
+        label="Save Configuration"
+        (click)="onSaveConfiguration()">
+      </button>
+    </div>
+  </div>
+</div>
