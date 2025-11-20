@@ -52,6 +52,7 @@
   },
   "workspaces": [
     "apps/*",
-    "libs/*"
+    "libs/*",
+    "apps/UI/lsit-portal"
   ]
 }
