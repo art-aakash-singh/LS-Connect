@@ -5,6 +5,11 @@ dist
 tmp
 out-tsc
 
+# Service Environment Files
+.env
+.apps/*/.env
+apps/auth/.env
+
 # dependencies
 node_modules
 

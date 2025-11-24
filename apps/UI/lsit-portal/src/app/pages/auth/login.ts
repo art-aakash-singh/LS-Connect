@@ -23,7 +23,7 @@ import { AppFloatingConfigurator } from '../../layout/component/app.floatingconf
                                 <img src="assets/images/AG_logo.svg" class="w-30" alt="logo" />
                             </div>
 
-                            <div class="text-surface-900 dark:text-surface-0 text-3xl font-medium mb-4">Welcome to ls connect!</div>
+                            <div class="text-surface-900 dark:text-surface-0 text-3xl font-medium mb-4">Welcome to LS Connect.</div>
                             <span class="text-muted-color font-medium">Sign in to continue</span>
                         </div>
 

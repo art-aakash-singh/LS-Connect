@@ -7,13 +7,6 @@ import * as fs from 'fs';
 import { V1Module } from './api/v1/v1.module';
 
 async function bootstrap() {
-  // const httpsOptions = {
-  //   key: fs.readFileSync('apps/auth/src/assets/server.key'),
-  //   cert: fs.readFileSync('apps/auth/src/assets/server.crt'),
-  //   ca: fs.readFileSync('apps/auth/src/assets/ca.crt'),
-  //   requestCert: true,
-  //   rejectUnauthorized: true,
-  // };
 
   //const app = await NestFactory.create(AppModule, { httpsOptions });
   const app = await NestFactory.create(AppModule);
